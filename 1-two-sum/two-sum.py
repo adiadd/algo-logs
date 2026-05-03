@@ -1,11 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        store = {}
+        res = []
+        visited = {} # {num: index}
+
         for i in range(len(nums)):
             diff = target - nums[i]
-            if diff in store:
-                return [i,store[diff]]
+            if diff in visited:
+                return [i, visited[diff]]
             else:
-                store[nums[i]] = i
-
-        return [0,0]
+                visited[nums[i]] = i
+        return []
