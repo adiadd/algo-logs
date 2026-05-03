@@ -3,18 +3,9 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        one, two = {}, {}
+        countS, countT = {}, {}
 
-        for letter in s:
-            if letter in one:
-                one[letter] += 1
-            else:
-                one[letter] = 1
-
-        for letter in t:
-            if letter in two:
-                two[letter] += 1
-            else:
-                two[letter] = 1
-
-        return one == two
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
